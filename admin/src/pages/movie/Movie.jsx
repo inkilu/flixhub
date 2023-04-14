@@ -4,7 +4,7 @@ import { Publish } from "@material-ui/icons";
 
 export default function Movie() {
   const location = useLocation();
-  const movie = location.movie;
+  const movie = location.state.movie;
   return (
     <div className="product">
       <div className="productTitleContainer">
@@ -54,6 +54,7 @@ export default function Movie() {
             <input type="file" placeholder={movie.trailer} />
             <label>Video</label>
             <input type="file" placeholder={movie.video} />
+           
           </div>
           <div className="productFormRight">
             <div className="productUpload">

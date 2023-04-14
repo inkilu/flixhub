@@ -61,6 +61,7 @@ export default function MovieList() {
 
   return (
     <div className="productList">
+
       <DataGrid
         rows={movies}
         disableSelectionOnClick

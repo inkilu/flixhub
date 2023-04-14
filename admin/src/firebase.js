@@ -1,7 +1,7 @@
 import firebase from "firebase";
 
 const firebaseConfig = {
-  apiKey: process.env.APP_KEY,
+  apiKey: "AIzaSyBR-9_StS_Hq3gQlsaF3bsWlHKdls8hebI",
   authDomain: "flixhub-4b629.firebaseapp.com",
   projectId: "flixhub-4b629",
   storageBucket: "flixhub-4b629.appspot.com",
@@ -10,6 +10,7 @@ const firebaseConfig = {
   measurementId: "G-BVK9B8ZJQB"
 };
 
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const storage = firebase.storage();
 export default storage;
