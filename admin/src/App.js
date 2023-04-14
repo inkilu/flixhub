@@ -18,8 +18,9 @@ import ListList from "./pages/listList/ListList";
 import List from "./pages/list/List";
 import NewList from "./pages/newList/NewList";
 import MovieList from "./pages/movieList/MovieList";
-import { Movie } from "@material-ui/icons";
+// import { Movie } from "@material-ui/icons";
 import NewMovie from "./pages/newMovie/NewMovie";
+import Movie from "./pages/movie/Movie";
 
 function App() {
   const { user } = useContext(AuthContext);
