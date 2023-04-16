@@ -59,17 +59,19 @@ router.get("/find/:id", async (req, res) => {
 //GET ALL
 router.get("/", verify, async (req, res) => {
   const query = req.query.new;
-  if (req.user.isAdmin) {
+  if (req.user.isAdmin) { // if this error occurs change the token in WidgetSm.jsx
     try {
       const users = query
         ? await User.find().sort({ _id: -1 }).limit(5)
         : await User.find();
       res.status(200).json(users);
     } catch (err) {
-      res.status(500).json(err);
+      console.log("Error",err)
+      // res.status(500).json(err);
     }
   } else {
-    res.status(403).json("You are not allowed to see all users!");
+    console.log("Not allowed")
+    // res.status(403).json("You are not allowed to see all users!");
   }
 });
 
