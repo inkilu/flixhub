@@ -24,17 +24,17 @@ export const createMovieFailure = () => ({
   type: "CREATE_MOVIE_FAILURE",
 });
 
-export const updateMovieStart = () => ({
-  type: "UPDATE_MOVIE_START",
+export const updateMovieStart = () => ({ // UPLOAD WAS UPDATE
+  type: "UPLOAD_MOVIE_START",
 });
 
 export const updateMovieSuccess = (movie) => ({
-  type: "UPDATE_MOVIE_SUCCESS",
+  type: "UPLOAD_MOVIE_SUCCESS",
   payload: movie,
 });
 
 export const updateMovieFailure = () => ({
-  type: "UPDATE_MOVIE_FAILURE",
+  type: "UPLOAD_MOVIE_FAILURE",
 });
 
 export const deleteMovieStart = () => ({

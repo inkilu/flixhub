@@ -29,11 +29,11 @@ export default function ListList() {
       renderCell: (params) => {
         return (
           <>
-            <Link
+            {/* <Link
               to={{ pathname: "/list/" + params.row._id, list: params.row }}
             >
               <button className="productListEdit">Edit</button>
-            </Link>
+            </Link> */}
             <DeleteOutline
               className="productListDelete"
               onClick={() => handleDelete(params.row._id)}
