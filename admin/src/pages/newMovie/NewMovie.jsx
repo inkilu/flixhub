@@ -18,6 +18,7 @@ export default function NewMovie() {
   const handleChange = (e) => {
     const value = e.target.value;
     setMovie({ ...movie, [e.target.name]: value });
+    console.log(e.target.name)
   };
 
   const upload = (items) => {

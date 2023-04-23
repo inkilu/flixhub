@@ -48,8 +48,7 @@ export const createMovie = async (movie, dispatch) => {
 export const updateMovie = async (movie, dispatch) => {
   dispatch(updateMovieStart());
   try {
-    console.log(movie)
-    const res = await axios.put("/movies"+movie, {
+    const res = await axios.put(`/movies/${movie._id}`,movie, { //const res = await axios.put("/movies/"+movie._id,
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },

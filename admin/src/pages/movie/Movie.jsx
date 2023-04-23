@@ -6,19 +6,21 @@ import { updateMovie } from "../../context/movieContext/apiCalls";
 import { MovieContext } from "../../context/movieContext/MovieContext";
 import storage from "../../firebase";
 export default function Movie() {
+  const location = useLocation();
+  const movie = location.movie;
   // new code
 
-  const [upmovie, setMovie] = useState(null);
+  const [upmovie, setMovie] = useState({_id: movie._id});
   const [img, setImg] = useState(null);
   const [trailer, setTrailer] = useState(null);
   const [video, setVideo] = useState(null);
   const [uploaded, setUploaded] = useState(0);
 
   const { dispatch } = useContext(MovieContext);
-
   const handleChange = (e) => {
     const value = e.target.value;
-    setMovie({ ...upmovie, [e.target.name]: value });
+    setMovie({...upmovie, [e.target.name]: value });
+    console.log(upmovie);
   };
 
   const upload = (items) => {
@@ -47,20 +49,21 @@ export default function Movie() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleUpload = (e) => {
     e.preventDefault();
     upload([
       { file: img, label: "img" },
       { file: trailer, label: "trailer" },
       { file: video, label: "video" },
     ]);
-
-    updateMovie(upmovie, dispatch);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateMovie(upmovie, dispatch);
+  };
   // old code starts here
-  const location = useLocation();
-  const movie = location.movie;
+
   return (
     <div className="product">
       <div className="productTitleContainer">
@@ -96,17 +99,17 @@ export default function Movie() {
         <form className="productForm">
           <div className="productFormLeft">
             <label>Movie Title</label>
-            <input type="text" placeholder={movie.title} onChange={handleChange}/>
+            <input type="text" name="title" placeholder={movie.title} onChange={handleChange}/>
             <label>Year</label>
-            <input type="text" placeholder={movie.year} onChange={handleChange}/>
+            <input type="text" name="year" placeholder={movie.year} onChange={handleChange}/>
             <label>Genre</label>
-            <input type="text" placeholder={movie.genre} onChange={handleChange}/>
+            <input type="text" name="genre" placeholder={movie.genre} onChange={handleChange}/>
             <label>Limit</label>
-            <input type="text" placeholder={movie.limit} onChange={handleChange}/>
+            <input type="text" name="limit" placeholder={movie.limit} onChange={handleChange}/>
             <label>Trailer</label>
-            <input type="file" placeholder={movie.trailer} onChange={(e) => setTrailer(e.target.files[0])}/>
+            <input type="file" name="trailer" placeholder={movie.trailer} onChange={(e) => setTrailer(e.target.files[0])}/>
             <label>Video</label>
-            <input type="file" placeholder={movie.video} onChange={(e) => setVideo(e.target.files[0])}/>
+            <input type="file" name="video" placeholder={movie.video} onChange={(e) => setVideo(e.target.files[0])}/>
            
           </div>
           <div className="productFormRight">
@@ -119,10 +122,18 @@ export default function Movie() {
               <label for="file">
                 <Publish />
               </label>
-              <input type="file" id="file" style={{ display: "none" }} onChange={(e) => setImg(e.target.files[0])}/>
+              <input type="file" id="file" name="img" style={{ display: "none" }} onChange={(e) => setImg(e.target.files[0])}/>
             </div>
-            <button className="productButton" onClick={handleSubmit} >Update</button>
           </div>
+                  {uploaded === 3 ? (
+          <button className="addProductButton" onClick={handleSubmit}>
+            Create
+          </button>
+        ) : (
+          <button className="addProductButton" onClick={handleUpload}>
+            Upload
+          </button>
+        )}
         </form>
       </div>
     </div>
