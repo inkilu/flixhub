@@ -55,11 +55,12 @@ export default function Home() {
 
   return (
     <div className="home">
-      <FeaturedInfo />
+      <h1>FlixHub Admin Page</h1>
+      {/* <FeaturedInfo /> */}
       <Chart data={userStats} title="User Analytics" grid dataKey="New User" />
       <div className="homeWidgets">
         <WidgetSm />
-        <WidgetLg />
+        {/* <WidgetLg /> */}
       </div>
     </div>
   );
