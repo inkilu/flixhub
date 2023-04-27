@@ -21,6 +21,7 @@ import MovieList from "./pages/movieList/MovieList";
 // import { Movie } from "@material-ui/icons";
 import NewMovie from "./pages/newMovie/NewMovie";
 import Movie from "./pages/movie/Movie";
+import AllRequests from "./pages/allrequests/AllRequests";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -62,6 +63,9 @@ function App() {
               </Route>
               <Route path="/newlist">
                 <NewList />
+              </Route>
+              <Route path="/AllRequests">
+                <AllRequests/>
               </Route>
             </div>
           </>

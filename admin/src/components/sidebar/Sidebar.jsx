@@ -3,7 +3,6 @@ import {
   LineStyle,
   Timeline,
   TrendingUp,
-  PermIdentity,
   PlayCircleOutline,
   List,
   MailOutline,
@@ -72,10 +71,13 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Notifications</h3>
           <ul className="sidebarList">
+            <Link to="/AllRequests" className="link">
             <li className="sidebarListItem">
-              <MailOutline className="sidebarIcon" />
-              Mail
+              <MailOutline className="sidebarIcon" /> 
+              {/* NEW MOVIE REQUESTS  */}
+              New Requests
             </li>
+            </Link>
             <li className="sidebarListItem">
               <DynamicFeed className="sidebarIcon" />
               Feedback
