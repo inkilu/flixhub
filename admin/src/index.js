@@ -4,13 +4,15 @@ import App from "./App";
 import { AuthContextProvider } from "./context/authContext/AuthContext";
 import { MovieContextProvider } from "./context/movieContext/MovieContext";
 import { ListContextProvider } from "./context/listContext/ListContext";
-
+import { FeedbacksContextProvider } from "./context/feebacksContext/FeedbacksContext";
 ReactDOM.render(
   <React.StrictMode>
     <AuthContextProvider>
       <MovieContextProvider>
         <ListContextProvider>
+          <FeedbacksContextProvider>
           <App />
+          </FeedbacksContextProvider>
         </ListContextProvider>
       </MovieContextProvider>
     </AuthContextProvider>

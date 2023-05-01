@@ -71,7 +71,7 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Notifications</h3>
           <ul className="sidebarList">
-            <Link to="/AllRequests" className="link">
+            <Link to="/Feedbacks" className="link">
             <li className="sidebarListItem">
               <MailOutline className="sidebarIcon" /> 
               {/* NEW MOVIE REQUESTS  */}
