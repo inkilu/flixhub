@@ -1,4 +1,4 @@
-import { ArrowDropDown, Notifications, Search } from "@material-ui/icons";
+import { ArrowDropDown, Search,RateReviewOutlined } from "@material-ui/icons";
 import { useContext, useState } from "react";
 import "./navbar.scss";
 import { Link } from "react-router-dom";
@@ -35,16 +35,18 @@ const Navbar = () => {
         </div>
         <div className="right">
           <Search className="icon" />
-          <span>KID</span>
-          <Notifications className="icon" />
+          <span>{JSON.parse(localStorage.getItem("user")).username}</span>
+          <Link to="/feedbacks">
+          <RateReviewOutlined className="icon"/>
+          </Link>
           <img
-            src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
             alt=""
           />
           <div className="profile">
-            <ArrowDropDown className="icon" />
+            <ArrowDropDown className="icon"
+            />
             <div className="options">
-              <span>Settings</span>
               <span onClick={() => dispatch(logout())}>Logout</span>
             </div>
           </div>

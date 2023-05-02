@@ -1,6 +1,6 @@
 import "./feedbacks.css";
 import { DataGrid } from "@material-ui/data-grid";
-import { DeleteOutline } from "@material-ui/icons";
+import { CheckCircleOutlineOutlined } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { deleteList} from "../../context/listContext/apiCalls";
@@ -8,7 +8,7 @@ import { deleteFeedbacks } from "../../context/feebacksContext/apiCalls";
 import { FeedbacksContext } from "../../context/feebacksContext/FeedbacksContext";
 import { getFeebacks } from "../../context/feebacksContext/apiCalls";
 
-export default function ListList() {
+export default function Feedbacks() {
   const { feedbacks, dispatch } = useContext(FeedbacksContext);
 
   useEffect(() => {
@@ -21,9 +21,9 @@ export default function ListList() {
 
   const columns = [
     { field: "_id", headerName: "ID", width: 250 },
-    { field: "title", headerName: "title", width: 250 },
+    { field: "title", headerName: "Title", width: 250 },
     { field: "genre", headerName: "Genre", width: 150 },
-    { field: "year", headerName: "year", width: 150 },
+    { field: "year", headerName: "Year", width: 150 },
     {
       field: "action",
       headerName: "Action",
@@ -36,7 +36,7 @@ export default function ListList() {
             >
               <button className="productListEdit">Edit</button>
             </Link> */}
-            <DeleteOutline
+            <CheckCircleOutlineOutlined
               className="productListDelete"
               onClick={() => handleDelete(params.row._id)}
             />

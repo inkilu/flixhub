@@ -3,6 +3,7 @@ import Home from "./pages/home/Home";
 import Register from "./pages/register/Register";
 import Watch from "./pages/watch/Watch";
 import Login from "./pages/login/Login";
+import Feedbacks from "./pages/feedbacks/Feedbacks";
 import {
   BrowserRouter as Router,
   Switch,
@@ -34,6 +35,9 @@ const App = () => {
             </Route>
             <Route path="/watch">
               <Watch />
+            </Route>
+            <Route path="/feedbacks">
+              <Feedbacks />
             </Route>
           </>
         )}

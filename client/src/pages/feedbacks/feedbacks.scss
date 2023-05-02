@@ -1,0 +1,33 @@
+.centered-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  /* Custom styles for dark mode */
+body {
+    background-color: #333;
+  }
+  
+  label {
+    color: #bbb;
+  }
+  
+  input::placeholder {
+    color: #888;
+  }
+  
+  .btn-primary {
+    background-color: #bbb;
+    border-color: #bbb;
+  }
+  
+  .btn-primary:hover {
+    background-color: #ccc;
+    border-color: #ccc;
+  }
+  
+  .btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
