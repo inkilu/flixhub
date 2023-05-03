@@ -1,14 +1,14 @@
 @import "../../app.scss";
 
-.featured {
+.featured1 {
   height: 76vh;
   position: relative;
 
-  .category {
+  .category1 {
     position: absolute;
     top: 80px;
     left: 50px;
-    font-size: 30px;
+    font-size: 14px;
     font-weight: 500;
     color: white;
     display: flex;
@@ -20,7 +20,7 @@
       border: 1px solid white;
       color: white;
       margin-left: 20px;
-      padding: 5px;
+      padding: 4px;
     }
   }
 

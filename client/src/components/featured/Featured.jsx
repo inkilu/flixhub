@@ -25,9 +25,9 @@ export default function Featured({ type, setGenre }) {
 
   console.log(content);
   return (
-    <div className="featured">
+    <div className="featured1">
       {type && (
-        <div className="category">
+        <div className="category1">
           <span>{type === "movies" ? "Movies" : "Series"}</span>
           <select
             name="genre"

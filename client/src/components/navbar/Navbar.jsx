@@ -14,9 +14,9 @@ const Navbar = () => {
     return () => (window.onscroll = null);
   };
   return (
-    <div className={isScrolled ? "navbar scrolled" : "navbar"}>
-      <div className="container">
-        <div className="left">
+    <div className={isScrolled ? "navbar1 scrolled1" : "navbar1"}>
+      <div className="container1">
+        <div className="left1">
           <img
             src="https://i.ibb.co/xskVQgR/flixhub.png"
             alt=""
@@ -30,23 +30,21 @@ const Navbar = () => {
           <Link to="/movies" className="link">
             <span className="navbarmainLinks">Movies</span>
           </Link>
-          <span>New and Popular</span>
-          <span>My List</span>
         </div>
-        <div className="right">
-          <Search className="icon" />
+        <div className="right1">
+          <Search className="icon1" />
           <span>{JSON.parse(localStorage.getItem("user")).username}</span>
           <Link to="/feedbacks">
-          <RateReviewOutlined className="icon"/>
+          <RateReviewOutlined className="icon1"/>
           </Link>
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
             alt=""
           />
-          <div className="profile">
-            <ArrowDropDown className="icon"
+          <div className="profile1">
+            <ArrowDropDown className="icon1"
             />
-            <div className="options">
+            <div className="options1">
               <span onClick={() => dispatch(logout())}>Logout</span>
             </div>
           </div>
