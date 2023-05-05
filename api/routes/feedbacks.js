@@ -4,8 +4,8 @@ const verify = require("../verifyToken");
 
 //CREATE
 
-router.post("/", verify, async (req, res) => {
-  if (req.user.isAdmin) {
+router.post("/", async (req, res) => {
+   if (true) {
     const newFeedbacks = new Feedbacks(req.body);
     try {
       const savedFeedbacks = await newFeedbacks.save();
@@ -13,8 +13,8 @@ router.post("/", verify, async (req, res) => {
     } catch (err) {
       res.status(500).json(err);
     }
-  } else {
-    res.status(403).json("You are not allowed!");
+  } else{
+    console.log("Error")
   }
 });
 
@@ -34,6 +34,7 @@ router.delete("/:id", verify, async (req, res) => {
 });
 
 //GET
+
 router.get("/", verify, async (req, res) => {
     if (req.user.isAdmin) {
       try {

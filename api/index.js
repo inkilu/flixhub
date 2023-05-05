@@ -9,7 +9,6 @@ const listRoute = require("./routes/lists");
 const feedbacksRoute = require("./routes/feedbacks");
 
 dotenv.config();
-
 mongoose
   .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
