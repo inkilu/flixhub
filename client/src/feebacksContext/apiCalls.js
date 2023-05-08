@@ -6,9 +6,6 @@ import { getFeedbacksStart,
         deleteFeedbacksStart,
         deleteFeedbacksSuccess,
         deleteFeedbacksFailure,
-        createFeedbacksFailure,
-        createFeedbacksStart,
-        createFeedbacksSuccess
 } from "./FeedbacksActions";
 
 export const getFeebacks = async (dispatch) => {
@@ -26,17 +23,13 @@ export const getFeebacks = async (dispatch) => {
 };
 
 //create
-export const createFeedbacks = async (feedbacks, dispatch) => {
-  dispatch(createFeedbacksStart());
+export const createFeedbacks = async (feedbacks) => {
   try {
-    const res = await axios.post("/feedbacks", feedbacks, {
-      headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-      },
-    });
-    dispatch(createFeedbacksSuccess(res.data));
+    const res = await axios.post("/feedbacks", feedbacks);
+    alert("Request Submitted!");
+    window.location('/');
   } catch (err) {
-    dispatch(createFeedbacksFailure());
+console.log(err)
   }
 };
 

@@ -49,6 +49,8 @@ export const deleteFeedbacks = async (id, dispatch) => {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
     });
+    window.location.reload();
+    alert("Request Accepeted");
     dispatch(deleteFeedbacksSuccess(id));
   } catch (err) {
     dispatch(deleteFeedbacksFailure());

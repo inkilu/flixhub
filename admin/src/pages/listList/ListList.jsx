@@ -16,6 +16,11 @@ export default function ListList() {
   const handleDelete = (id) => {
     deleteList(id, dispatch);
   };
+  
+  const divStyle = {
+    color: 'red',
+    cursor: 'pointer',
+  };
 
   const columns = [
     { field: "_id", headerName: "ID", width: 250 },
@@ -35,7 +40,7 @@ export default function ListList() {
               <button className="productListEdit">Edit</button>
             </Link> */}
             <DeleteOutline
-              className="productListDelete"
+              style={divStyle}
               onClick={() => handleDelete(params.row._id)}
             />
           </>

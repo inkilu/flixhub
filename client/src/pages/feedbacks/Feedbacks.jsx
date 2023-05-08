@@ -4,7 +4,9 @@ import "bootstrap/dist/js/bootstrap.bundle.min"; // REMOVE THESE IMPORTS TO FIX 
 import {FeedbacksContext} from '../../feebacksContext/FeedbacksContext'
 import React, { useState, useContext } from 'react';
 import { createFeedbacks } from "../../feebacksContext/apiCalls";
+import { useHistory } from 'react-router-dom';
 export default function Feedbacks (){
+  const history = useHistory();
   const { dispatch } = useContext(FeedbacksContext);
     const [feedbacks, setFeedbacks] = useState(null);
     const handleChange = (e) => {
@@ -16,6 +18,7 @@ export default function Feedbacks (){
     const handleSubmit = (e) => {
       e.preventDefault();
       createFeedbacks(feedbacks,dispatch);
+      history.push('/')
     }
   
     return (

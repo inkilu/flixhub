@@ -17,6 +17,11 @@ export default function MovieList() {
     deleteMovie(id, dispatch);
   };
 
+  const divStyle = {
+    color: 'red',
+    cursor: 'pointer',
+  };
+
   const columns = [
     { field: "_id", headerName: "ID", width: 90 },
     {
@@ -50,7 +55,7 @@ export default function MovieList() {
               <button className="productListEdit">Edit</button>
             </Link>
             <DeleteOutline
-              className="productListDelete"
+              style={divStyle}
               onClick={() => handleDelete(params.row._id)}
             />
           </>
