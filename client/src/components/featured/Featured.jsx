@@ -22,8 +22,6 @@ export default function Featured({ type, setGenre }) {
     };
     getRandomContent();
   }, [type]);
-
-  console.log(content);
   return (
     <div className="featured1">
       {type && (
@@ -68,7 +66,6 @@ export default function Featured({ type, setGenre }) {
           </button>
         </div>
       </div>
-      {console.log("current movie is",content)}
     </div>
   );
 }

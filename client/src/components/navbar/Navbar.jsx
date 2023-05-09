@@ -4,15 +4,21 @@ import "./navbar.scss";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../authContext/AuthContext";
 import { logout } from "../../authContext/AuthActions";
-
-const Navbar = () => {
+const Navbar = ({onSearch}) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { dispatch } = useContext(AuthContext);
-
+  const [searchValue, setSearchValue] = useState('');
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
     return () => (window.onscroll = null);
   };
+
+  const handleSearchChange = (event) => {
+    const value = event.target.value;
+    setSearchValue(value);
+    onSearch(value);
+  };
+
   return (
     <div className={isScrolled ? "navbar1 scrolled1" : "navbar1"}>
       <div className="container1">
@@ -32,6 +38,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="right1">
+          <input type="text" name="moviesearch" id="moviesearch" onChange={handleSearchChange}/>
           <Search className="icon1" />
           <span>{JSON.parse(localStorage.getItem("user")).username}</span>
           <Link to="/feedbacks">
