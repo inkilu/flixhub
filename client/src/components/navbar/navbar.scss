@@ -13,6 +13,18 @@
     background-color: var(--main-color);
   }
 
+.transparentSearchBar{
+  background-color: black;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px;
+  width: 180px;
+  color:aliceblue;
+}
+.transparentSearchBar:focus{
+  outline: none;
+  border-color: #555;
+}
   .container1 {
     padding: 0px 50px;
     display: flex;

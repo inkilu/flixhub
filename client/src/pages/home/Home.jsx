@@ -9,8 +9,6 @@ const Home = ({ type }) => {
   const [lists, setLists] = useState([]);
   const [genre, setGenre] = useState(null);
   const [searchValue, setSearchValue] = useState('');
-
-
   useEffect(() => {
     const getRandomLists = async () => {
       try {
@@ -50,11 +48,10 @@ const Home = ({ type }) => {
       <Navbar onSearch={handleSearch} />
       <Featured type={type} setGenre={setGenre} />
       {lists.map((list) => (
-        console.log(list),
+        //console.log(list)
         <List list={list} />
       ))}
     </div>
   );
 };
-
 export default Home;

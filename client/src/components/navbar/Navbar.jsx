@@ -8,9 +8,15 @@ const Navbar = ({onSearch}) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { dispatch } = useContext(AuthContext);
   const [searchValue, setSearchValue] = useState('');
+  const [showInput, setShowInput] = useState(false);
+
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
     return () => (window.onscroll = null);
+  };
+
+  const handleClick = () => {
+    setShowInput(true);
   };
 
   const handleSearchChange = (event) => {
@@ -18,7 +24,6 @@ const Navbar = ({onSearch}) => {
     setSearchValue(value);
     onSearch(value);
   };
-
   return (
     <div className={isScrolled ? "navbar1 scrolled1" : "navbar1"}>
       <div className="container1">
@@ -38,8 +43,8 @@ const Navbar = ({onSearch}) => {
           </Link>
         </div>
         <div className="right1">
-          <input type="text" name="moviesearch" id="moviesearch" onChange={handleSearchChange}/>
-          <Search className="icon1" />
+        {showInput && (<input type="text" name="moviesearch" id="moviesearch" className="transparentSearchBar" onChange={handleSearchChange}/>)}
+          <Search className="icon1" onClick={handleClick} />
           <span>{JSON.parse(localStorage.getItem("user")).username}</span>
           <Link to="/feedbacks">
           <RateReviewOutlined className="icon1"/>
