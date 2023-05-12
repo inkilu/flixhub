@@ -88,6 +88,30 @@ router.get("/random", verify, async (req, res) => {
   }
 });
 
+// GET SEARCH RESULT
+
+router.get("/search", verify, async (req, res) => {
+  const query = req.query.query; // Get the search query from the request
+
+  try {
+    const movie = await Movie.findOne({
+      $or: [
+        { title: { $regex: query, $options: "i" } }, // Search by title (case-insensitive)
+        { description: { $regex: query, $options: "i" } }, // Search by description (case-insensitive)
+      ],
+    });
+    if (!movie) {
+      // If no movie matches the search query
+      res.status(404).json({ message: "No movie found" });
+    } else {
+      res.status(200).json(movie);
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 //GET ALL
 
 router.get("/", verify, async (req, res) => {

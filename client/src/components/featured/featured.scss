@@ -50,7 +50,8 @@
 
     .desc {
       margin: 20px 0px;
-
+      font-size: 50px;
+      text-shadow: black 3px 4px 3px;
       @include mobile {
         width: 60vw;
       }
@@ -69,6 +70,7 @@
         font-size: 18px;
         font-weight: 500;
         margin-right: 10px;
+        text-decoration: none;
         cursor: pointer;
 
         &.play {

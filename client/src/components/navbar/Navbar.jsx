@@ -1,5 +1,5 @@
 import { ArrowDropDown, Search,RateReviewOutlined } from "@material-ui/icons";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import "./navbar.scss";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../authContext/AuthContext";
@@ -43,7 +43,7 @@ const Navbar = ({onSearch}) => {
           </Link>
         </div>
         <div className="right1">
-        {showInput && (<input type="text" name="moviesearch" id="moviesearch" className="transparentSearchBar" onChange={handleSearchChange}/>)}
+        {showInput && (<input type="text" name="moviesearch" id="moviesearch" className="transparentSearchBar" onChange={handleSearchChange} autoComplete="off"/>)}
           <Search className="icon1" onClick={handleClick} />
           <span>{JSON.parse(localStorage.getItem("user")).username}</span>
           <Link to="/feedbacks">

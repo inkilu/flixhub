@@ -3,25 +3,37 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./featured.scss";
 import { Link, useLocation } from "react-router-dom";
-export default function Featured({ type, setGenre }) {
+import Navbar from "../navbar/Navbar";
+export default function Featured({ type, setGenre,searchQuery }) {
   const [content, setContent] = useState({});
-
-  useEffect(() => {
-    const getRandomContent = async () => {
-      try {
-        const res = await axios.get(`/movies/random?type=${type}`, {
+  const getRandomContent = async () => {
+    try {
+      if (searchQuery) {
+        // Fetch search results based on the search query
+        const res = await axios.get(`/movies/search?query=${searchQuery}`, {
           headers: {
-            token:
-              "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
+            token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
           },
         });
+        setContent(res.data);
+      } 
+      else {
+        // Fetch random content based on the type prop
+        const res = await axios.get(`/movies/random?type=${type}`, {
+          headers: {
+            token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+          },
+        });
+        console.log(res.data)
         setContent(res.data[0]);
-      } catch (err) {
-        console.log(err);
       }
-    };
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
     getRandomContent();
-  }, [type]);
+  }, [type, searchQuery, setGenre]);
   return (
     <div className="featured1">
       {type && (
