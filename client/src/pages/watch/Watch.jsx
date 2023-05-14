@@ -1,11 +1,17 @@
 import { ArrowBackOutlined } from "@material-ui/icons";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, Redirect } from "react-router-dom";
 import "./watch.scss";
 
 export default function Watch() {
   const location = useLocation();
   const movie = location.movie;
+  const isPaid = JSON.parse(localStorage.getItem("user")).subscription;
+
+    if (isPaid === false) {
+      return <Redirect to="/Payment" />;
+    }
   return (
+
     <div className="watch">
       <Link to="/">
         <div className="back">
