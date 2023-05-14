@@ -3,9 +3,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./featured.scss";
 import { Link, useLocation } from "react-router-dom";
-import Navbar from "../navbar/Navbar";
+import Modal from "../Modal/Modal";
 export default function Featured({ type, setGenre,searchQuery }) {
   const [content, setContent] = useState({});
+  const [openModal, setOpenModal] = useState(false);
+
   const getRandomContent = async () => {
     try {
       if (searchQuery) {
@@ -72,8 +74,12 @@ export default function Featured({ type, setGenre,searchQuery }) {
             <span>Play</span>
           </button>
           </Link>
-          <button className="more">
+          <button className="more" onClick={() => setOpenModal(true)} >
             <InfoOutlined />
+            <Modal 
+            open={openModal} 
+            onClose={() => setOpenModal(false)}
+            item={content.trailer} />
             <span>Info</span>
           </button>
         </div>

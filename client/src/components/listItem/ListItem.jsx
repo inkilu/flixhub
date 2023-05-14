@@ -41,20 +41,21 @@ export default function ListItem({ index, item }) {
         <img src={movie?.imgSm} alt="" />
         {isHovered && (
           <>
-          {console.log(movie.video)}
+          {console.log(movie)}
             <video src={movie.trailer} autoPlay={true} loop />
             <div className="itemInfo">
-              <div className="icons">
-                <PlayArrow className="icon" />
-                <Add className="icon" />
-                <ThumbUpAltOutlined className="icon" />
-                <ThumbDownOutlined className="icon" />
+              <div className="icons1">
+                <PlayArrow className="icon1" />
+                <Add className="icon1" />
+                <ThumbUpAltOutlined className="icon1" />
+                <ThumbDownOutlined className="icon1" />
               </div>
               <div className="itemInfoTop">
                 <span>{movie.duration}</span>
                 <span className="limit">+{movie.limit}</span>
                 <span>{movie.year}</span>
               </div>
+              <div className="movietitle">{movie.title}</div>
               <div className="desc">{movie.desc}</div>
               <div className="genre">{movie.genre}</div>
             </div>
