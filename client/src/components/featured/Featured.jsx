@@ -66,7 +66,7 @@ export default function Featured({ type, setGenre,searchQuery }) {
       <img src={content.img} alt="" />
       <div className="info">
         <img src={content.imgTitle} alt="" />
-        <span className="desc">{content.desc}</span>
+        <span className="desc">{content.title}</span>
         <div className="buttons">
         <Link to={{ pathname: "/watch",movie:content}}>
           <button className="play">
@@ -79,7 +79,7 @@ export default function Featured({ type, setGenre,searchQuery }) {
             <Modal 
             open={openModal} 
             onClose={() => setOpenModal(false)}
-            item={content.trailer} />
+            item={content} />
             <span>Info</span>
           </button>
         </div>

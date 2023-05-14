@@ -13,7 +13,11 @@ const Modal = ({ open, onClose, item}) => {
           }}
           className='modalContainer'
         >
-        <video src={item} autoPlay={true} loop onClick={onClose}/>
+        <video src={item.trailer} autoPlay={true} loop onClick={onClose}/>
+        <div className="movietitle2"onClick={onClose}>{item.title}</div>
+        <div className="desc2" onClick={onClose}>{item.desc}</div>
+        <div className="desc2" onClick={onClose}>Age Rating: {item.limit}+</div>
+        <div className="genre2" onClick={onClose}>{item.genre}</div>
         </div>
       </div>
     );
