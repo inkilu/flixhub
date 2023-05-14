@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import './payment.css'
+import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 const PaymentForm = () => {
   const [cardNumber, setCardNumber] = useState('');
   const [expirationDate, setExpirationDate] = useState('');
   const [cvv, setCVV] = useState('');
-
+const userId = JSON.parse(localStorage.getItem("user"))._id;
   const handleCardNumberChange = (e) => {
     setCardNumber(e.target.value);
   };
@@ -17,15 +19,22 @@ const PaymentForm = () => {
     setCVV(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
+  const updateUser = async () => {
+    try {
+      const res = await axios.put(`/users/${userId}`, {
+      "subscription":true
+      });
+      console.log(res.data);
+      <Redirect to ="/PaymentPending"/>
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
     <div className="payment-form">
       <h2>Payment Details</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={updateUser}>
         <div className="form-group">
           <label htmlFor="cardNumber">Card Number</label>
           <input
@@ -64,6 +73,7 @@ const PaymentForm = () => {
         </div>
         <button type="submit">Pay Now</button>
       </form>
+      {console.log(userId)}
     </div>
   );
 };

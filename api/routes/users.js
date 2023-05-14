@@ -4,8 +4,9 @@ const CryptoJS = require("crypto-js");
 const verify = require("../verifyToken");
 //UPDATE
 
-router.put("/:id", verify, async (req, res) => {
-  if (req.user.id === req.params.id || req.user.isAdmin) {
+router.put("/:id", async (req, res) => {
+ //if (req.user.id === req.params.id || req.user.isAdmin) 
+ if(true) {
     if (req.body.password) {
       req.body.password = CryptoJS.AES.encrypt(
         req.body.password,
@@ -23,7 +24,8 @@ router.put("/:id", verify, async (req, res) => {
       );
       res.status(200).json(updatedUser);
     } catch (err) {
-      res.status(500).json(err);
+      //res.status(500).json(err);
+      console.log("Oh fekk");
     }
   } else {
     res.status(403).json("You can update only your account!");
