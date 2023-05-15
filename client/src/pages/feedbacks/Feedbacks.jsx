@@ -5,10 +5,16 @@ import {FeedbacksContext} from '../../feebacksContext/FeedbacksContext'
 import React, { useState, useContext } from 'react';
 import { createFeedbacks } from "../../feebacksContext/apiCalls";
 import { useHistory } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 export default function Feedbacks (){
   const history = useHistory();
   const { dispatch } = useContext(FeedbacksContext);
     const [feedbacks, setFeedbacks] = useState(null);
+
+    const isPaid = JSON.parse(localStorage.getItem("user")).subscription;
+    if (isPaid === false) {
+      return <Redirect to="/Payment" />;
+    }
     const handleChange = (e) => {
       const value = e.target.value;
       setFeedbacks({ ...feedbacks, [e.target.name]: value });
@@ -20,7 +26,6 @@ export default function Feedbacks (){
       createFeedbacks(feedbacks,dispatch);
       history.push('/')
     }
-  
     return (
 <div className="centered-container bg-light">
 <div className="container shadow-lg p-3 mb-5 bg-light rounded ">
