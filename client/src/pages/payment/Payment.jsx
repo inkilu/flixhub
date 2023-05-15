@@ -8,6 +8,8 @@ const PaymentForm = () => {
   const [expirationDate, setExpirationDate] = useState('');
   const [cvv, setCVV] = useState('');
 const userId = JSON.parse(localStorage.getItem("user"))._id;
+const storedObject = JSON.parse(localStorage.getItem('user'));
+
   const handleCardNumberChange = (e) => {
     setCardNumber(e.target.value);
   };
@@ -30,14 +32,37 @@ const userId = JSON.parse(localStorage.getItem("user"))._id;
     } catch (err) {
       console.error(err);
     }
+    storedObject.subscription = true;
+    localStorage.setItem('user', JSON.stringify(storedObject));
     history.push('/Paymentpending');
   };
 
   return (
     <div className="payment-form">
-      <h2>Payment Details</h2>
+    <h2>Choose a Plan and Pay!</h2>
+    <div className="plans-container">
+      <div className="plan">
+        <h2>₹50</h2>
+        <p className='centertext'>• Access to every media </p>
+        {/* Other plan details */}
+      </div>
+      <div className="plan">
+        <h2>₹120</h2>
+        <p className='centertext'>• Access to every media</p>
+        <p className='centertext'>• Fast Request Checking</p>
+        {/* Other plan details */}
+      </div>
+      <div className="plan">
+        <h2>₹210</h2>
+        <p className='centertext'>• Access to every media</p>
+        <p className='centertext'>• Fast Request Checking</p>
+        <p className='centertext'>• Early Access to New Features</p>
+        {/* Other plan details */}
+      </div>
+    </div>
       <form onSubmit={updateUser}>
         <div className="form-group">
+          <h3>Card details</h3>
           <label htmlFor="cardNumber">Card Number</label>
           <input
             type="text"
@@ -64,7 +89,7 @@ const userId = JSON.parse(localStorage.getItem("user"))._id;
         <div className="form-group">
           <label htmlFor="cvv">CVV</label>
           <input
-            type="text"
+            type="password"
             id="cvv"
             pattern="\d*"
             maxLength="3"

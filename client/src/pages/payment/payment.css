@@ -1,3 +1,25 @@
+.plans-container {
+  display: flex;
+  flex-direction: row;
+}
+.centertext{
+  text-align: center;
+}
+.plan {
+  flex: 1;
+  background-color: #141414;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px rgba(255, 0, 0, 0.3);
+  padding: 20px;
+  margin: 20px;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.plan:hover{
+  box-shadow: 6px 6px 8px rgba(255, 0, 0, 0.7);
+  transform: translateY(-2px);
+}
+
 .payment-form {
     max-width: 100%;
     margin: 0 auto;
