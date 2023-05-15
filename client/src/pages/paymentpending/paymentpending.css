@@ -1,0 +1,19 @@
+.main-payment-pending-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjust the height if needed */
+    background-color: #191919;
+  }
+  
+  .loading-icon {
+    width: 800px; /* Adjust the size of the image if needed */
+    height: 600px;
+  }
+  
+  .paymenth2 {
+    color: aliceblue;
+    margin-top: 20px; /* Adjust the margin as desired */
+  }
+  

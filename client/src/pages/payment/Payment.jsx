@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './payment.css'
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 const PaymentForm = () => {
+  const history = useHistory();
   const [cardNumber, setCardNumber] = useState('');
   const [expirationDate, setExpirationDate] = useState('');
   const [cvv, setCVV] = useState('');
@@ -19,16 +20,17 @@ const userId = JSON.parse(localStorage.getItem("user"))._id;
     setCVV(e.target.value);
   };
 
-  const updateUser = async () => {
+  const updateUser = async (e) => {
+    e.preventDefault();
     try {
       const res = await axios.put(`/users/${userId}`, {
       "subscription":true
       });
       console.log(res.data);
-      <Redirect to ="/PaymentPending"/>
     } catch (err) {
       console.error(err);
     }
+    history.push('/Paymentpending');
   };
 
   return (

@@ -6,6 +6,7 @@ import Login from "./pages/login/Login";
 import Feedbacks from "./pages/feedbacks/Feedbacks";
 import Payment from "./pages/payment/Payment";
 import PaymentPending from "./pages/paymentpending/PaymentPending";
+import Paymentsuccess from "./pages/paymentsuccess/Paymentsuccess";
 import {
   BrowserRouter as Router,
   Switch,
@@ -46,6 +47,9 @@ const App = () => {
             </Route>
             <Route path="/PaymentPending">
               <PaymentPending/>
+            </Route>
+            <Route path="/PaymentSuccess">
+              <Paymentsuccess/>
             </Route>
           </>
         )}

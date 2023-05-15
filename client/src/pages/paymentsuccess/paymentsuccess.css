@@ -1,0 +1,6 @@
+.successdiv{
+    height: 100vh;
+    width: 100vw;
+    background:url('./success.gif');
+    background-position: center;
+}
