@@ -34,13 +34,15 @@ const storedObject = JSON.parse(localStorage.getItem('user'));
     e.preventDefault();
     try {
       const res = await axios.put(`/users/${userId}`, {
-      "subscription":true
+      "subscription":true,
+      "plan":plan
       });
       console.log(res.data);
     } catch (err) {
       console.error(err);
     }
     storedObject.subscription = true;
+    storedObject.plan = plan;
     localStorage.setItem('user', JSON.stringify(storedObject));
     history.push('/Paymentpending');
   };

@@ -9,6 +9,7 @@ const Profile = () => {
     const email = JSON.parse(localStorage.getItem("user")).email;
     const paymentdate = JSON.parse(localStorage.getItem("user")).updatedAt;
     const userId = JSON.parse(localStorage.getItem("user"))._id;
+    const myplan = JSON.parse(localStorage.getItem("user")).plan;
     const history = useHistory();
     function redirectPayment(){
         history.push('/Payment');
@@ -31,9 +32,9 @@ const Profile = () => {
     <div className="profile-page">
       <div className="profile-header">
         <img
+          alt=""
           className="profile-picture"
           src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
-          alt="Profile Picture"
         />
         <h1 className="username">{username}</h1>
       </div>
@@ -43,6 +44,7 @@ const Profile = () => {
           <p>Email: {email}</p>
           <p>Subscription :{subscription?"Subscribed":"Not Subscribed"}</p>
           { subscription && <p>Subscription Date: {paymentdate} </p>}
+          { subscription && <p>Subscription Plan: <b>₹{myplan}</b></p>}
         </div>
       </div>
       <div className="profile-actions">
