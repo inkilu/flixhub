@@ -20,6 +20,11 @@
   transform: translateY(-2px);
 }
 
+.plan.clicked {
+  box-shadow: 6px 6px 8px rgba(255, 0, 0, 0.7);
+  transform: translateY(-2px);
+}
+
 .payment-form {
     max-width: 100%;
     margin: 0 auto;

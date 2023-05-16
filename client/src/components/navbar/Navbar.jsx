@@ -4,17 +4,20 @@ import "./navbar.scss";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../authContext/AuthContext";
 import { logout } from "../../authContext/AuthActions";
+import { useHistory } from "react-router-dom";
 const Navbar = ({onSearch}) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { dispatch } = useContext(AuthContext);
   const [searchValue, setSearchValue] = useState('');
   const [showInput, setShowInput] = useState(false);
-
+  const history = useHistory();
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
     return () => (window.onscroll = null);
   };
-
+ function getProfile(){
+  history.push('/Profile');
+  }
   const handleClick = () => {
     setShowInput(true);
   };
@@ -57,6 +60,7 @@ const Navbar = ({onSearch}) => {
             <ArrowDropDown className="icon1"
             />
             <div className="options1">
+              <span onClick={getProfile}>Profile</span>
               <span onClick={() => dispatch(logout())}>Logout</span>
             </div>
           </div>

@@ -7,6 +7,9 @@ const PaymentForm = () => {
   const [cardNumber, setCardNumber] = useState('');
   const [expirationDate, setExpirationDate] = useState('');
   const [cvv, setCVV] = useState('');
+  const [plan,setPlan] = useState('');
+
+  const [clickedIndex, setClickedIndex] = useState(null);
 const userId = JSON.parse(localStorage.getItem("user"))._id;
 const storedObject = JSON.parse(localStorage.getItem('user'));
 
@@ -20,6 +23,11 @@ const storedObject = JSON.parse(localStorage.getItem('user'));
 
   const handleCVVChange = (e) => {
     setCVV(e.target.value);
+  };
+
+  const handleDivClick = (value,index) => {
+    setPlan(value);
+    setClickedIndex(index);
   };
 
   const updateUser = async (e) => {
@@ -41,18 +49,18 @@ const storedObject = JSON.parse(localStorage.getItem('user'));
     <div className="payment-form">
     <h2>Choose a Plan and Pay!</h2>
     <div className="plans-container">
-      <div className="plan">
+      <div className={`plan ${clickedIndex === 0 ? 'clicked' : ''}`} onClick={()=>{handleDivClick('50',0)}}>
         <h2>₹50</h2>
         <p className='centertext'>• Access to every media </p>
         {/* Other plan details */}
       </div>
-      <div className="plan">
+      <div className={`plan ${clickedIndex === 1 ? 'clicked' : ''}`} onClick={()=>{handleDivClick('120',1)}}>
         <h2>₹120</h2>
         <p className='centertext'>• Access to every media</p>
         <p className='centertext'>• Fast Request Checking</p>
         {/* Other plan details */}
       </div>
-      <div className="plan">
+      <div className={`plan ${clickedIndex === 2 ? 'clicked' : ''}`} onClick={()=>{handleDivClick('210',2)}}>
         <h2>₹210</h2>
         <p className='centertext'>• Access to every media</p>
         <p className='centertext'>• Fast Request Checking</p>
@@ -100,7 +108,6 @@ const storedObject = JSON.parse(localStorage.getItem('user'));
         </div>
         <button type="submit">Pay Now</button>
       </form>
-      {console.log(userId)}
     </div>
   );
 };

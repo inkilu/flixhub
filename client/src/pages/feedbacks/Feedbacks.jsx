@@ -15,6 +15,7 @@ export default function Feedbacks (){
     if (isPaid === false) {
       return <Redirect to="/Payment" />;
     }
+    
     const handleChange = (e) => {
       const value = e.target.value;
       setFeedbacks({ ...feedbacks, [e.target.name]: value });
@@ -26,6 +27,7 @@ export default function Feedbacks (){
       createFeedbacks(feedbacks,dispatch);
       history.push('/')
     }
+
     return (
 <div className="centered-container bg-light">
 <div className="container shadow-lg p-3 mb-5 bg-light rounded ">
