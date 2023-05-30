@@ -57,7 +57,6 @@ return (
       <h1>FlixHub Admin Page</h1>
       <Chart data={userStats} title="User Analytics" grid dataKey="New User" />
       <div className="homeWidgets">
-        {console.log(userStats)}
         <WidgetSm />
       </div>
       <PieChartGraph/>

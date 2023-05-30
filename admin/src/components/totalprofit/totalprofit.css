@@ -1,0 +1,21 @@
+.container3 {
+    display: flex;
+  }
+  
+  .box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    border: 1px solid #000;
+    margin: 10px;
+  }
+  
+  .left-box {
+    box-shadow: grey 1px 2px 1px;
+  }
+  
+  .right-box {
+    box-shadow: grey 1px 2px 1px;
+  }
