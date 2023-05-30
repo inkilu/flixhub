@@ -82,6 +82,7 @@ const storedObject = JSON.parse(localStorage.getItem('user'));
             placeholder='16 Digit Card Number'
             value={cardNumber}
             onChange={handleCardNumberChange}
+            autocomplete="off"
           />
         </div>
         <div className="form-group">
@@ -93,7 +94,8 @@ const storedObject = JSON.parse(localStorage.getItem('user'));
             onChange={handleExpirationDateChange}
             maxLength="5"
             placeholder="MM/YY"
-            pattern="^(0[1-9]|1[0-2])\/(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|6[0-9]|7[0-9]|8[0-9]|9[0-9])$"
+            pattern="^(0[1-9]|1[0-2])\/(2[3-9]|[3-9][0-9])$"
+            autocomplete="off"
           />
         </div>
         <div className="form-group">
