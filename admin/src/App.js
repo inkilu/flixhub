@@ -22,7 +22,6 @@ import MovieList from "./pages/movieList/MovieList";
 import NewMovie from "./pages/newMovie/NewMovie";
 import Movie from "./pages/movie/Movie";
 import Feedbacks from "./pages/feedbacks/Feedbacks";
-
 function App() {
   const { user } = useContext(AuthContext);
   return (

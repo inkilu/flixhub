@@ -12,7 +12,7 @@ export default function WidgetSm() {
         const res = await axios.get("/users?new=true", {
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTI5ZDdiMGJlOWFkMWVmODIyNTVkMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4MjE1ODI1NywiZXhwIjoxNjg0NzUwMjU3fQ.yYpL4QN6kzQgCtijl8eJyphIUbIcjTl9IlOYq5AiE4I",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTI5ZDdiMGJlOWFkMWVmODIyNTVkMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NTEyMzY2OSwiZXhwIjoxNjg3NzE1NjY5fQ.G6U8MuRJ2Ks6gqMMlOk60JgRUrSck9SiCgj2Jz9xsSs",
           },
         });
         setNewUsers(res.data);
@@ -31,7 +31,7 @@ export default function WidgetSm() {
           <div className="widgetSmTitle"> Profile Photo</div>
           <div className="widgetSmTitle"> Username</div>
           <div className="widgetSmTitle"> Email-id</div>
-          {/* <div className="widgetSmUsername"> Subscription</div> */}
+          <div className="widgetSmUsername"> Subscription</div>
         </li>
         {newUsers.map((user) => (
           <li className="widgetSmListItem">
@@ -47,6 +47,11 @@ export default function WidgetSm() {
               <span className="widgetSmUsername">{user.username}</span>
             </div>
             <span className="widgetSmUsername">{user.email}</span>
+            {user.subscription ? (
+              <span className="widgetSmUsername">{user.plan}</span>
+            ) : (
+              <span className="widgetSmUsername">None</span>
+            )}
           </li>
         ))}
       </ul>

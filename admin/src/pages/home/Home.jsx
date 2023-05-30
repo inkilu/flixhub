@@ -2,6 +2,7 @@ import Chart from "../../components/chart/Chart";
 import "./home.css";
 import WidgetSm from "../../components/widgetSm/WidgetSm";
 import WidgetLg from "../../components/widgetLg/WidgetLg";
+import PieChartGraph from "../../components/piechart/PieChartGraph";
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 
@@ -50,14 +51,17 @@ export default function Home() {
     };
     getStats();
   }, [MONTHS]);
-
-  return (
+ 
+return (
     <div className="home">
       <h1>FlixHub Admin Page</h1>
       <Chart data={userStats} title="User Analytics" grid dataKey="New User" />
       <div className="homeWidgets">
+        {console.log(userStats)}
         <WidgetSm />
       </div>
+      <WidgetLg/>
+      <PieChartGraph/>
     </div>
   );
 }
