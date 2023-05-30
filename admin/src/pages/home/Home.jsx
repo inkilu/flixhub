@@ -2,7 +2,7 @@ import Chart from "../../components/chart/Chart";
 import "./home.css";
 import WidgetSm from "../../components/widgetSm/WidgetSm";
 import WidgetLg from "../../components/widgetLg/WidgetLg";
-import PieChartGraph from "../../components/piechart/PieChartGraph";
+import PieChartGraph from "../../components/totalprofit/Totalprofit";
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 
@@ -60,7 +60,6 @@ return (
         {console.log(userStats)}
         <WidgetSm />
       </div>
-      <WidgetLg/>
       <PieChartGraph/>
     </div>
   );

@@ -22,7 +22,8 @@ export default function WidgetSm() {
     };
     getNewUsers();
   }, []);
-  
+  let a = JSON.stringify(newUsers);
+  localStorage.setItem('graphDetails', a);
   return (
     <div className="widgetSm">
       <span className="widgetSmTitle">Users</span>
