@@ -10,7 +10,6 @@ export default function Topbar() {
           <span className="logo">FlixHub Admin</span>
         </div>
         <div className="topRight">
-          
         </div>
       </div>
     </div>
